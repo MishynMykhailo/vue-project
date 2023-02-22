@@ -3,7 +3,12 @@
         <form class="form" @submit.prevent>
             <h4>Создание поста</h4>
             <!-- "v-on:input" === "@"- for event listener -->
-            <my-input v-model="post.title" type="text" placeholder="Название" />
+            <my-input
+                v-focus
+                v-model="post.title"
+                type="text"
+                placeholder="Название"
+            />
             <my-input v-model="post.body" type="text" placeholder="Описание" />
             <my-button class="btn" type="submit" @click="createPost">
                 Создать пост

@@ -1,84 +1,14 @@
 <template>
+    <NavBar />
     <div class="app">
-        <!-- "v-bind" === ":" -->
-        <h1>Страница с постами</h1>
-        <div class="app__btns">
-            <my-button @click="showDialog"> Создать пост </my-button>
-            <my-select v-model="selectedSort" :options="sortOptions" />
-        </div>
-
-        <my-dialog v-model:show="dialogVisible">
-            <PostForm @create="createPost" />
-        </my-dialog>
-
-        <PostList
-            :posts="sortedPost"
-            @remove="removePost"
-            v-if="!isPostLoading"
-        />
-        <div v-else>Идет загрузка...</div>
+        <RouterView></RouterView>
     </div>
 </template>
 
 <script>
-import PostForm from '@/components/PostForm.vue';
-import PostList from '@/components/PostList.vue';
-import axios from 'axios';
-export default {
-    components: {
-        PostForm,
-        PostList,
-    },
-    data() {
-        return {
-            posts: [],
-            dialogVisible: false,
-            isPostLoading: false,
-            selectedSort: '',
-            sortOptions: [
-                { value: 'title', name: 'По названию' },
-                { value: 'body', name: 'По содержимому' },
-            ],
-        };
-    },
-    methods: {
-        createPost(post) {
-            this.posts.push(post);
-            this.dialogVisible = false;
-        },
-        removePost(post) {
-            this.posts = this.posts.filter((p) => p.id !== post.id);
-        },
-        showDialog() {
-            this.dialogVisible = true;
-        },
-        async fetchPosts() {
-            try {
-                this.isPostLoading = true;
-                const response = await axios.get(
-                    'https://jsonplaceholder.typicode.com/posts?_limit=10'
-                );
-                this.posts = response.data;
-            } catch (error) {
-                alert(e.message);
-            } finally {
-                this.isPostLoading = false;
-            }
-        },
-    },
-    mounted() {
-        this.fetchPosts();
-    },
-    computed: {
-        sortedPost() {
-            return [...this.posts].sort((post1, post2) =>
-                post1[this.selectedSort]?.localeCompare(
-                    post2[this.selectedSort]
-                )
-            );
-        },
-    },
-};
+import NavBar from './components/UI/NavBar.vue';
+
+export default { components: { NavBar } };
 </script>
 
 <style>
@@ -90,11 +20,5 @@ export default {
 
 .app {
     padding: 20px;
-}
-
-.app__btns {
-    margin: 15px 0;
-    display: flex;
-    justify-content: space-between;
 }
 </style>
