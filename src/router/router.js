@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Main from '@/pages/Main.vue';
+import Main from '@/pages/MainPage.vue';
 import PostIdPage from '@/pages/PostIdPage.vue';
 import PostPageStore from '@/pages/PostPageStore.vue';
 const routes = [

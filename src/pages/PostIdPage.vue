@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <div class="post__container" v-for="elem in this.post" v-if="this.post">
-            <p><b>Id:</b>{{ elem.id }}</p>
-            <p><b> Title: </b>{{ elem.title }}</p>
-            <p><b> Description: </b>{{ elem.body }}</p>
-        </div>
-        <div v-else>Not found info</div>
+    <div v-if="this.post">
+        <ul v-for="elem in this.post" v-bind:key="elem.id">
+            <li class="post__container">
+                <p><b>Id:</b>{{ elem.id }}</p>
+                <p><b> Title: </b>{{ elem.title }}</p>
+                <p><b> Description: </b>{{ elem.body }}</p>
+            </li>
+        </ul>
     </div>
+    <div v-else>Not found info</div>
 </template>
 
 <script>
