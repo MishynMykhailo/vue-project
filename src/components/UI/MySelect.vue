@@ -36,12 +36,8 @@ export default {
     border-color: var(--dark-color);
     border-radius: 5px;
     font-size: 14px;
-    background-color: var(--secondary-color);
+    background-color: white;
     color: var(--dark-color);
     outline: none;
-}
-
-.select::selection {
-    background-color: var(--dark-color);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <form class="form" @submit.prevent>
-            <h4>Create post</h4>
+            <h4 class="title">Create post</h4>
             <my-input
                 v-focus
                 v-model="post.title"
@@ -57,7 +57,9 @@ export default {
     display: flex;
     flex-direction: column;
 }
-
+.title {
+    color: var(--dark-color);
+}
 .btn {
     margin-top: 15px;
     align-self: flex-end;

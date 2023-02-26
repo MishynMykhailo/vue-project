@@ -30,7 +30,8 @@ export default {
 <style scoped>
 .post {
     padding: 15px;
-    border: 2px solid teal;
+    border: 2px solid var(--dark-color);
+    background-color: white;
     margin-top: 15px;
     display: flex;
     align-items: center;
@@ -41,6 +42,18 @@ export default {
 }
 .post__btns > button:not(:last-child) {
     margin-right: 5px;
+}
+@media screen and (max-width: 767px) {
+    .post__btns {
+        display: flex;
+        flex-direction: column;
+    }
+    .post__btns > button:not(:last-child) {
+        margin-bottom: 5px;
+    }
+    .post__btns > button {
+        width: 80px;
+    }
 }
 .btn__delete {
     border: 1px solid rgb(212, 45, 45);

@@ -1,19 +1,3 @@
-# vue-project
+# It's my first project with using Vue.js
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+I have used Vue3.js, Vuex, axios and routes.

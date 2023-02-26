@@ -49,6 +49,9 @@ export const postModule = {
         setTotalPages(state, totalPages) {
             state.totalPages = totalPages;
         },
+        removePost(state, post) {
+            state.posts = state.posts.filter((p) => p.id !== post.id);
+        },
     },
     actions: {
         async fetchPosts({ state, commit }) {
