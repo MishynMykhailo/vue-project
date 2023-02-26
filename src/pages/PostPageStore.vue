@@ -1,14 +1,15 @@
 <template>
     <div>
-        <h1>Страница с постами</h1>
+        <h1 class="title">Page with posts</h1>
         <my-input
+            class="findInput"
             v-focus
             :model-value="searchQuery"
             @update:model-value="setSearchQuery"
-            placeholder="Поиск..."
+            placeholder="Find..."
         />
         <div class="app__btns">
-            <my-button @click="showDialog"> Создать пост </my-button>
+            <my-button @click="showDialog"> Create Post </my-button>
             <my-select
                 :model-value="selectedSort"
                 :options="sortOptions"
@@ -16,16 +17,14 @@
             />
         </div>
         <my-dialog v-model:show="dialogVisible">
-            -->
             <PostForm @create="createPost" />
         </my-dialog>
-
         <PostList
             :posts="sortedAndSearchedPosts"
             @remove="removePost"
-            v-if="!isPostLoading"
+            v-if="!isPostsLoading"
         />
-        <div v-else>Идет загрузка...</div>
+        <div class="loading" v-else>Идет загрузка...</div>
         <div v-intersection="loadMorePosts" class="observer"></div>
     </div>
 </template>
@@ -72,7 +71,7 @@ export default {
     computed: {
         ...mapState({
             posts: (state) => state.post.posts,
-            isPostLoading: (state) => state.post.isPostLoading,
+            isPostsLoading: (state) => state.post.isPostsLoading,
             selectedSort: (state) => state.post.selectedSort,
             searchQuery: (state) => state.post.searchQuery,
             page: (state) => state.post.page,
@@ -89,6 +88,13 @@ export default {
 </script>
 
 <style>
+.title {
+    color: var(--dark-color);
+}
+
+.loading {
+    color: var(--dark-color);
+}
 .app__btns {
     margin: 15px 0;
     display: flex;

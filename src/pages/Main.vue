@@ -1,9 +1,6 @@
 <template>
-    <div>
-        <h1>Добро пожаловать</h1>
-        <RouterLink to="/">Гла вная</RouterLink>
-        <RouterLink to="/posts">Посты</RouterLink>
-        <RouterLink to="/about">О сайте</RouterLink>
+    <div class="title-container">
+        <h1 class="title">Hi, this is my first project using Vue.js.</h1>
     </div>
 </template>
 
@@ -11,4 +8,12 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+.title-container {
+    text-align: center;
+    margin-top: 80px;
+}
+.title {
+    color: var(--dark-color);
+}
+</style>

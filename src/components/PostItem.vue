@@ -1,15 +1,17 @@
 <template>
     <li class="post">
         <div>
-            <p><strong>id:</strong>{{ post.id }}</p>
-            <p><strong>Название:</strong>{{ post.title }}</p>
-            <p><strong>Описание:</strong>{{ post.body }}</p>
+            <p><strong>Id:</strong>{{ post.id }}</p>
+            <p><strong>Title:</strong>{{ post.title }}</p>
+            <p><strong>Description:</strong>{{ post.body }}</p>
         </div>
         <div class="post__btns">
             <my-button @click="$router.push(`/posts/${post.id}`)"
-                >Открыть</my-button
+                >Open</my-button
             >
-            <my-button @click="$emit('remove', post)">Удалить</my-button>
+            <my-button class="btn__delete" @click="$emit('remove', post)"
+                >Delete</my-button
+            >
         </div>
     </li>
 </template>
@@ -36,5 +38,16 @@ export default {
 }
 .post__btns {
     display: flex;
+}
+.post__btns > button:not(:last-child) {
+    margin-right: 5px;
+}
+.btn__delete {
+    border: 1px solid rgb(212, 45, 45);
+    background-color: rgb(212, 45, 45);
+}
+.btn__delete:hover {
+    border-color: rgb(212, 45, 45);
+    color: rgb(212, 45, 45);
 }
 </style>

@@ -1,17 +1,20 @@
 <template>
     <div>
         <form class="form" @submit.prevent>
-            <h4>Создание поста</h4>
-            <!-- "v-on:input" === "@"- for event listener -->
+            <h4>Create post</h4>
             <my-input
                 v-focus
                 v-model="post.title"
                 type="text"
-                placeholder="Название"
+                placeholder="Title"
             />
-            <my-input v-model="post.body" type="text" placeholder="Описание" />
+            <my-input
+                v-model="post.body"
+                type="text"
+                placeholder="Description"
+            />
             <my-button class="btn" type="submit" @click="createPost">
-                Создать пост
+                Create
             </my-button>
         </form>
     </div>

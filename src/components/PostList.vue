@@ -1,17 +1,17 @@
 <template>
     <div v-if="posts.length > 0">
-        <h3>Список пользователей</h3>
+        <h2>Post list</h2>
         <TransitionGroup name="post-list" tag="ul">
             <PostItem
-                :post="post"
                 v-for="post in posts"
+                :post="post"
                 :key="post.id"
                 @remove="$emit('remove', post)"
             />
         </TransitionGroup>
     </div>
     <div v-else>
-        <h2 style="color: red">Список постов пуст</h2>
+        <h2 style="color: red">Posts list empty</h2>
     </div>
 </template>
 

@@ -3,15 +3,15 @@ import axios from 'axios';
 export const postModule = {
     state: () => ({
         posts: [],
-        isPostLoading: false,
+        isPostsLoading: false,
         selectedSort: '',
         searchQuery: '',
         page: 1,
         limit: 10,
         totalPages: 0,
         sortOptions: [
-            { value: 'title', name: 'По названию' },
-            { value: 'body', name: 'По содержимому' },
+            { value: 'title', name: 'By title' },
+            { value: 'body', name: 'By description' },
         ],
     }),
     getters: {
@@ -35,7 +35,7 @@ export const postModule = {
             state.posts = posts;
         },
         setLoading(state, bool) {
-            state.isPostLoading = bool;
+            state.isPostsLoading = bool;
         },
         setSelectedSort(state, selectedSort) {
             state.selectedSort = selectedSort;
