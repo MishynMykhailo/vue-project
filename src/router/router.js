@@ -8,7 +8,7 @@ const routes = [
     { path: '/posts/:id', component: PostIdPage },
 ];
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('vue-project'),
     routes,
 });
 export default router;
