@@ -28,7 +28,9 @@ html {
     box-sizing: border-box;
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
-
+li {
+    list-style: none;
+}
 .app {
     padding: 20px;
 }
