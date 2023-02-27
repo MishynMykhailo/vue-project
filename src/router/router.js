@@ -8,7 +8,7 @@ const routes = [
     { path: '/posts/:id', component: PostIdPage },
 ];
 const router = createRouter({
-    routes,
     history: createWebHistory(process.env.BASE_URL),
+    routes,
 });
 export default router;

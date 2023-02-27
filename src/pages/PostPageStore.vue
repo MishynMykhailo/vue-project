@@ -24,7 +24,7 @@
             @remove="removePost"
             v-if="!isPostsLoading"
         />
-        <div class="loading" v-else>Идет загрузка...</div>
+        <div class="loading" v-else>Loading...</div>
         <div v-intersection="loadMorePosts" class="observer"></div>
     </div>
 </template>
